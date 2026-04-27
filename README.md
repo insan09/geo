@@ -9,7 +9,7 @@ Static lead-generation landing page for stucco and facade repair in California.
 - `styles.css` - responsive layout and visual styling.
 - `script.js` - lead form handling, image compression and submission.
 - `api/lead.js` - Vercel-style serverless endpoint for email and Telegram delivery.
-- `assets/*.webp` - optimized generated before/after repair images used by the page.
+- `assets/*-480q30.webp` - optimized generated before/after repair images used by the page.
 
 ## Lead delivery
 
