@@ -140,6 +140,13 @@
   transform: scale(1.035);
 }
 
+@media (min-width: 1180px) {
+  .hero-content,
+  .hero h1 {
+    max-width: 960px;
+  }
+}
+
 @media (max-width: 1120px) {
   .repair-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
