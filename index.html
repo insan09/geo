@@ -3,17 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>GeoStroy Facade Repair | Stucco & Facade Repair in Los Angeles</title>
+    <title>Pacific Facade | Stucco & Facade Repair in Los Angeles</title>
     <meta name="description" content="Cracked stucco, water stains, or peeling exterior? Send photos and get a fast stucco and facade repair estimate from local specialists in Los Angeles.">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="overrides.css">
   </head>
   <body>
     <header class="site-header" aria-label="Main navigation">
-      <a class="brand" href="#top" aria-label="GeoStroy Facade Repair home">
-        <span class="brand-mark">GS</span>
+      <a class="brand" href="#top" aria-label="Pacific Facade home">
+        <span class="brand-logo-wrap" aria-hidden="true">
+          <img class="brand-logo" src="assets/pacific-facade-mark.webp" alt="">
+        </span>
         <span>
-          <strong>GeoStroy</strong>
-          <small>Facade Repair</small>
+          <strong>Pacific Facade</strong>
+          <small>Stucco &amp; Facade Repair</small>
         </span>
       </a>
       <nav class="nav-links" aria-label="Page sections">
@@ -88,6 +92,15 @@
             <span>Get a rough range</span>
             <span>No site visit required to start</span>
           </div>
+          <div class="estimate-snapshot" aria-label="Typical repair range">
+            <span>Typical small repair range</span>
+            <strong>$500-$3,000</strong>
+            <small>Final quote after an on-site inspection.</small>
+          </div>
+          <div class="photo-guide" aria-label="Recommended photos">
+            <strong>Best photos to upload</strong>
+            <span>One wide shot, one close-up, and one angle that shows nearby windows, doors or balcony edges.</span>
+          </div>
           <button class="button button-primary form-submit" type="submit">Get My Free Estimate</button>
           <p class="form-note">By submitting, you agree to be contacted about your facade or stucco repair project by phone, text or email.</p>
           <p class="form-status" role="status" aria-live="polite"></p>
@@ -113,12 +126,20 @@
         <div class="section-heading">
           <p class="eyebrow">Before &amp; after</p>
           <h2>See Typical Stucco &amp; Facade Repairs</h2>
-          <p>Most projects we see are not full rebuilds. They are targeted repairs of cracks, water damage and failing stucco patches.</p>
+          <p>Most projects we see are not full rebuilds. They are targeted repairs of cracks, water damage and failing stucco patches. Pick the example that looks closest to your wall, then upload photos for a quick review.</p>
+        </div>
+        <div class="issue-strip" aria-label="Common stucco and facade issues">
+          <a href="#repair-window-cracks">Window cracks</a>
+          <a href="#repair-peeling-stucco">Peeling stucco</a>
+          <a href="#repair-water-stains">Water stains</a>
+          <a href="#repair-balcony-edge">Balcony edges</a>
+          <a href="#repair-foundation-moisture">Ground-line moisture</a>
+          <a href="#repair-entry-cracks">Entry cracks</a>
         </div>
         <div class="repair-grid">
-          <article class="repair-card">
+          <article class="repair-card" id="repair-window-cracks">
             <div class="repair-media">
-              <img src="assets/stucco-cracks-before-after-480q30.webp" alt="Before and after stucco cracks repaired around a window" loading="lazy">
+              <div class="repair-photo repair-photo-window" role="img" aria-label="Before and after stucco cracks repaired around a window"></div>
               <span class="before-badge">Before</span>
               <span class="after-badge">After</span>
             </div>
@@ -128,9 +149,9 @@
               <p><strong>After:</strong> Cracks properly opened, filled and sealed; stucco patched and repainted to match the existing finish.</p>
             </div>
           </article>
-          <article class="repair-card">
+          <article class="repair-card" id="repair-peeling-stucco">
             <div class="repair-media">
-              <img src="assets/peeling-stucco-before-after-480q30.webp" alt="Before and after peeling stucco repaired on an exterior wall" loading="lazy">
+              <div class="repair-photo repair-photo-peeling" role="img" aria-label="Before and after peeling stucco repaired on an exterior corner"></div>
               <span class="before-badge">Before</span>
               <span class="after-badge">After</span>
             </div>
@@ -140,9 +161,9 @@
               <p><strong>After:</strong> Damaged sections removed, substrate repaired, new stucco applied in layers and finished to match texture.</p>
             </div>
           </article>
-          <article class="repair-card">
+          <article class="repair-card" id="repair-water-stains">
             <div class="repair-media">
-              <img src="assets/water-stains-before-after-480q30.webp" alt="Before and after water stains removed from exterior stucco" loading="lazy">
+              <div class="repair-photo repair-photo-water" role="img" aria-label="Before and after water stains repaired on exterior stucco"></div>
               <span class="before-badge">Before</span>
               <span class="after-badge">After</span>
             </div>
@@ -150,6 +171,42 @@
               <p class="card-label">Water stains on exterior walls</p>
               <p><strong>Before:</strong> Discoloration or staining usually means water intrusion through cracks, seams or failed flashing.</p>
               <p><strong>After:</strong> Source of moisture identified, area sealed, stucco repaired and wall repainted to prevent further damage.</p>
+            </div>
+          </article>
+          <article class="repair-card" id="repair-balcony-edge">
+            <div class="repair-media">
+              <div class="repair-photo repair-photo-balcony" role="img" aria-label="Before and after balcony edge stucco and rust stain repair"></div>
+              <span class="before-badge">Before</span>
+              <span class="after-badge">After</span>
+            </div>
+            <div class="card-body">
+              <p class="card-label">Balcony edge and railing stains</p>
+              <p><strong>Before:</strong> Cracks near balcony edges and railing fasteners can let water in and leave rust-colored stains.</p>
+              <p><strong>After:</strong> Penetrations sealed, loose stucco removed, edges patched and painted for a clean HOA-ready finish.</p>
+            </div>
+          </article>
+          <article class="repair-card" id="repair-foundation-moisture">
+            <div class="repair-media">
+              <div class="repair-photo repair-photo-foundation" role="img" aria-label="Before and after ground-level stucco moisture damage repair"></div>
+              <span class="before-badge">Before</span>
+              <span class="after-badge">After</span>
+            </div>
+            <div class="card-body">
+              <p class="card-label">Ground-level moisture damage</p>
+              <p><strong>Before:</strong> Flaking paint and white efflorescence near the foundation often point to moisture wicking into stucco.</p>
+              <p><strong>After:</strong> Problem area waterproofed, damaged stucco replaced and the base repainted with a cleaner ground line.</p>
+            </div>
+          </article>
+          <article class="repair-card" id="repair-entry-cracks">
+            <div class="repair-media">
+              <div class="repair-photo repair-photo-entry" role="img" aria-label="Before and after stucco cracks repaired around an entry door"></div>
+              <span class="before-badge">Before</span>
+              <span class="after-badge">After</span>
+            </div>
+            <div class="card-body">
+              <p class="card-label">Entry cracks and chipped corners</p>
+              <p><strong>Before:</strong> Door corners and columns move over time, creating diagonal cracks and chipped stucco in high-visibility areas.</p>
+              <p><strong>After:</strong> Cracks opened, filled and sealed; entry stucco patched and blended into surrounding texture.</p>
             </div>
           </article>
         </div>
@@ -229,7 +286,7 @@
 
       <section class="section trust">
         <div class="section-heading">
-          <p class="eyebrow">Why GeoStroy</p>
+          <p class="eyebrow">Why Pacific Facade</p>
           <h2>Why Homeowners and Property Managers Use Us</h2>
         </div>
         <div class="trust-grid">
@@ -331,6 +388,10 @@
             <span>Get a rough range</span>
             <span>No obligation</span>
           </div>
+          <div class="photo-guide" aria-label="Recommended photos">
+            <strong>Best photos to upload</strong>
+            <span>One wide shot, one close-up, and one angle that shows nearby windows, doors or balcony edges.</span>
+          </div>
           <button class="button button-primary form-submit" type="submit">Send My Request</button>
           <p class="form-note">By submitting, you agree to be contacted about your facade or stucco repair project by phone, text or email.</p>
           <p class="form-status" role="status" aria-live="polite"></p>
@@ -345,7 +406,7 @@
 
     <footer class="site-footer">
       <div>
-        <strong>GeoStroy Facade Repair</strong>
+        <strong>Pacific Facade</strong>
         <p>Stucco and exterior facade repair lead support for California property owners.</p>
       </div>
       <a href="#top">Back to top</a>

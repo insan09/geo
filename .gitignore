@@ -4,3 +4,4 @@ Thumbs.db
 .env.local
 .vercel
 node_modules
+.codex-preview

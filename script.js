@@ -1,6 +1,6 @@
 (function () {
   const API_ENDPOINT = "/api/lead";
-  const FALLBACK_EMAIL = "leads@geostroyfacade.com";
+  const FALLBACK_EMAIL = "leads@pacificfacade.com";
   const MAX_FILES = 5;
   const MAX_TOTAL_BASE64_BYTES = 7 * 1024 * 1024;
 
@@ -176,6 +176,7 @@
     const targets = document.querySelectorAll([
       ".proof-strip > div",
       ".section-heading",
+      ".issue-strip",
       ".repair-card",
       ".service-grid article",
       ".timeline article",

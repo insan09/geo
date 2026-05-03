@@ -1,4 +1,4 @@
-# GeoStroy Facade Repair landing page
+# Pacific Facade landing page
 
 Static lead-generation landing page for stucco and facade repair in California.
 
@@ -9,7 +9,8 @@ Static lead-generation landing page for stucco and facade repair in California.
 - `styles.css` - responsive layout and visual styling.
 - `script.js` - lead form handling, image compression and submission.
 - `api/lead.js` - Vercel-style serverless endpoint for email and Telegram delivery.
-- `assets/*-480q30.webp` - optimized generated before/after repair images used by the page.
+- `assets/repair-gallery-sprite.webp` - optimized generated before/after repair gallery used by the page.
+- `assets/pacific-facade-*.webp` and `assets/favicon.svg` - logo assets generated from the supplied Pacific Facade logo.
 
 ## Lead delivery
 
@@ -18,7 +19,7 @@ The form posts JSON to `/api/lead`. Configure these environment variables in hos
 ```text
 RESEND_API_KEY=...
 LEAD_TO_EMAIL=owner@example.com
-LEAD_FROM_EMAIL=GeoStroy Leads <leads@yourdomain.com>
+LEAD_FROM_EMAIL=Pacific Facade Leads <leads@yourdomain.com>
 TELEGRAM_BOT_TOKEN=...
 TELEGRAM_CHAT_ID=...
 ```

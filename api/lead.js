@@ -111,7 +111,7 @@ async function sendEmail(lead) {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      from: process.env.LEAD_FROM_EMAIL || "GeoStroy Leads <onboarding@resend.dev>",
+      from: process.env.LEAD_FROM_EMAIL || "Pacific Facade Leads <onboarding@resend.dev>",
       to: [process.env.LEAD_TO_EMAIL],
       reply_to: lead.email || undefined,
       subject: `New stucco repair lead: ${lead.zip || "California"}`,
