@@ -131,7 +131,9 @@
 }
 
 .repair-photo-entry {
-  background-position: 100% 100%;
+  background-image: url("assets/repair-entry-cracks-before-after.webp");
+  background-position: center;
+  background-size: cover;
 }
 
 .repair-card:hover .repair-photo {
