@@ -87,8 +87,32 @@ function normalizeLead(payload) {
     email: clean(payload.email, 160),
     zip: clean(payload.zip, 120),
     description: clean(payload.description, 1800),
+    tracking: normalizeTracking(payload.tracking),
     photos
   };
+}
+
+function normalizeTracking(tracking) {
+  if (!tracking || typeof tracking !== "object") return {};
+
+  const allowedKeys = [
+    "gclid",
+    "gbraid",
+    "wbraid",
+    "msclkid",
+    "fbclid",
+    "landing_page",
+    "current_page",
+    "referrer"
+  ];
+
+  return Object.entries(tracking).reduce((normalized, [rawKey, rawValue]) => {
+    const key = clean(rawKey, 80).toLowerCase();
+    if (!key.startsWith("utm_") && !allowedKeys.includes(key)) return normalized;
+    const value = clean(rawValue, key.includes("page") || key === "referrer" ? 500 : 240);
+    if (value) normalized[key] = value;
+    return normalized;
+  }, {});
 }
 
 function normalizePhoto(photo) {
@@ -177,13 +201,26 @@ function buildEmailHtml(lead) {
     <p><strong>ZIP / City:</strong> ${escapeHtml(lead.zip)}</p>
     <p><strong>Source:</strong> ${escapeHtml(lead.source || "landing")}</p>
     <p><strong>Page:</strong> ${escapeHtml(lead.page || "")}</p>
+    ${buildTrackingHtml(lead.tracking)}
     <h2>Description</h2>
     <p>${escapeHtml(lead.description).replace(/\n/g, "<br>")}</p>
     <p><strong>Photos attached:</strong> ${lead.photos.length}</p>
   `;
 }
 
+function buildTrackingHtml(tracking) {
+  const rows = Object.entries(tracking || {});
+  if (!rows.length) return "";
+
+  return `
+    <h2>Tracking</h2>
+    ${rows.map(([key, value]) => `<p><strong>${escapeHtml(key)}:</strong> ${escapeHtml(value)}</p>`).join("")}
+  `;
+}
+
 function buildTelegramText(lead) {
+  const trackingLines = Object.entries(lead.tracking || {}).map(([key, value]) => `${key}: ${value}`);
+
   return [
     "New stucco / facade repair lead",
     "",
@@ -193,6 +230,7 @@ function buildTelegramText(lead) {
     `ZIP / City: ${lead.zip}`,
     `Source: ${lead.source || "landing"}`,
     `Page: ${lead.page || ""}`,
+    ...(trackingLines.length ? ["", "Tracking:", ...trackingLines] : []),
     "",
     "Description:",
     lead.description,
