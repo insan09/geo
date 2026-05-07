@@ -140,6 +140,85 @@
   transform: scale(1.035);
 }
 
+.site-footer .footer-disclaimer {
+  max-width: 760px;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.form-note a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.policy-content a {
+  color: var(--sage-dark);
+  font-weight: 800;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.simple-page {
+  min-height: 100vh;
+  background: var(--paper);
+}
+
+.simple-main {
+  padding: clamp(96px, 12vw, 150px) clamp(18px, 5vw, 74px) clamp(56px, 8vw, 100px);
+}
+
+.simple-hero,
+.policy-content {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.simple-hero {
+  color: var(--ink);
+}
+
+.simple-hero .hero-subtitle,
+.policy-content p {
+  color: var(--muted-ink);
+}
+
+.simple-hero .hero-trust {
+  margin-top: 28px;
+}
+
+.policy-content {
+  display: grid;
+  gap: 18px;
+  padding: clamp(24px, 4vw, 44px);
+  border: 1px solid rgba(30, 43, 39, 0.12);
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.policy-content h1,
+.policy-content h2,
+.policy-content p {
+  margin: 0;
+}
+
+.policy-content h2 {
+  margin-top: 10px;
+  font-size: 1.22rem;
+}
+
+.policy-date {
+  font-size: 0.92rem;
+}
+
 @media (min-width: 1180px) {
   .hero-content,
   .hero h1 {
