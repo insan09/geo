@@ -4,8 +4,8 @@ Static lead-generation landing page for stucco and facade repair in California.
 
 ## Files
 
-- `index.html` - main Los Angeles landing page.
-- `locations/*.html` - simple local pages for Los Angeles, San Diego and Sacramento.
+- `index.html` - main Glendale landing page.
+- `locations/*.html` - simple local pages for Glendale, San Diego and Sacramento.
 - `styles.css` - responsive layout and visual styling.
 - `script.js` - lead form handling, image compression and submission.
 - `api/lead.js` - Vercel-style serverless endpoint for email and Telegram delivery.
