@@ -1,10 +1,19 @@
 (function () {
   const API_ENDPOINT = "/api/lead";
   const FALLBACK_EMAIL = "leads@pacificfacade.com";
+  const THANK_YOU_URL = "/thank-you";
   const MAX_FILES = 5;
   const MAX_TOTAL_BASE64_BYTES = 7 * 1024 * 1024;
+  const CLICK_ID_KEYS = [
+    "gclid",
+    "gbraid",
+    "wbraid",
+    "msclkid",
+    "fbclid"
+  ];
 
   const forms = document.querySelectorAll("[data-lead-form]");
+  persistTrackingParams();
   initRevealAnimations();
   initStickyCta();
 
@@ -38,6 +47,7 @@
           email: value(formData, "email"),
           zip: value(formData, "zip") || value(formData, "cityZip"),
           description: value(formData, "description"),
+          tracking: getTrackingData(),
           photos
         };
 
@@ -54,7 +64,9 @@
 
         form.reset();
         if (fileName) fileName.textContent = "No photos selected";
+        trackLeadSubmission(payload);
         setStatus(status, "Thanks. We received your request and will review your photos shortly.", "success");
+        redirectToThankYou(payload.source || "landing");
       } catch (error) {
         if (window.location.protocol === "file:") {
           openMailFallback(form);
@@ -160,6 +172,79 @@
     if (!element) return;
     element.textContent = message;
     element.className = `form-status ${type || ""}`.trim();
+  }
+
+  function persistTrackingParams() {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const stored = JSON.parse(window.sessionStorage.getItem("pf_tracking") || "{}");
+      let changed = false;
+
+      if (!stored.landing_page) {
+        stored.landing_page = window.location.href;
+        changed = true;
+      }
+
+      if (document.referrer && !stored.referrer) {
+        stored.referrer = document.referrer;
+        changed = true;
+      }
+
+      params.forEach((currentValue, key) => {
+        const normalizedKey = key.toLowerCase();
+        if (!normalizedKey.startsWith("utm_") && !CLICK_ID_KEYS.includes(normalizedKey)) return;
+        if (!currentValue) return;
+        stored[normalizedKey] = currentValue.slice(0, 240);
+        changed = true;
+      });
+
+      if (changed) {
+        window.sessionStorage.setItem("pf_tracking", JSON.stringify(stored));
+      }
+    } catch (error) {
+      // Tracking data is useful for attribution, but it should never block a lead.
+    }
+  }
+
+  function getTrackingData() {
+    try {
+      const stored = JSON.parse(window.sessionStorage.getItem("pf_tracking") || "{}");
+      return {
+        ...stored,
+        current_page: window.location.href
+      };
+    } catch (error) {
+      return {
+        current_page: window.location.href
+      };
+    }
+  }
+
+  function trackLeadSubmission(payload) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "generate_lead",
+      lead_source: payload.source || "landing"
+    });
+
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "generate_lead", {
+        event_category: "lead",
+        event_label: payload.source || "landing"
+      });
+    }
+
+    if (typeof window.fbq === "function") {
+      window.fbq("track", "Lead");
+    }
+  }
+
+  function redirectToThankYou(source) {
+    const url = new URL(THANK_YOU_URL, window.location.origin);
+    url.searchParams.set("source", source);
+    window.setTimeout(() => {
+      window.location.href = url.toString();
+    }, 450);
   }
 
   function value(formData, key) {
